@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Sheamir 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(ellipse at 50% 0%, #2a0010 0%, #120008 50%, #060003 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      overflow: hidden;
+      position: relative;
+      padding: 16px;
+      gap: 6px;
+    }
+
+    .orb {
+      position: fixed; border-radius: 50%; filter: blur(90px);
+      pointer-events: none; z-index: 0;
+      animation: orb-pulse 7s ease-in-out infinite alternate;
+    }
+    @keyframes orb-pulse {
+      0%   { opacity: 0.12; transform: scale(1); }
+      100% { opacity: 0.30; transform: scale(1.3); }
+    }
+
+    .petal {
+      position: fixed; pointer-events: none; opacity: 0;
+      animation: petal-fall linear infinite; z-index: 1;
+    }
+    @keyframes petal-fall {
+      0%   { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+      10%  { opacity: 1; }
+      85%  { opacity: 0.5; }
+      100% { transform: translateY(105vh) rotate(600deg); opacity: 0; }
+    }
+
+    /* ── Name ── */
+    .name-banner {
+      position: relative; z-index: 2; text-align: center;
+    }
+    .for-text {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(12px, 2vw, 16px); color: rgba(255,190,170,0.65);
+      letter-spacing: 6px; text-transform: uppercase;
+    }
+    .her-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 8vw, 66px); font-weight: 700;
+      color: #fff; letter-spacing: 4px;
+      text-shadow: 0 0 20px rgba(255,60,80,0.9), 0 0 60px rgba(200,10,40,0.5);
+      line-height: 1.05;
+    }
+    .since-text {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(11px, 1.8vw, 14px); color: rgba(255,160,150,0.6);
+      letter-spacing: 3px; margin-top: 2px;
+    }
+
+    /* ── Big Heart ── */
+    .heart-container {
+      position: relative; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .big-heart-wrap {
+      position: relative;
+      width: min(280px, 68vw);
+      height: min(260px, 63vw);
+    }
+
+    /* The big heart SVG */
+    .big-heart-wrap svg {
+      width: 100%; height: 100%;
+      filter: drop-shadow(0 0 30px rgba(232,24,90,0.7))
+              drop-shadow(0 0 60px rgba(180,0,50,0.4));
+      animation: heart-pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes heart-pulse {
+      0%,100% { transform: scale(1);   filter: drop-shadow(0 0 28px rgba(232,24,90,0.7)) drop-shadow(0 0 55px rgba(180,0,50,0.4)); }
+      50%      { transform: scale(1.06); filter: drop-shadow(0 0 45px rgba(255,60,100,0.9)) drop-shadow(0 0 80px rgba(220,20,70,0.6)); }
+    }
+
+    /* Small hearts floating inside the big heart */
+    .mini-heart {
+      position: absolute;
+      font-size: clamp(12px, 3vw, 18px);
+      animation: mini-float ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes mini-float {
+      0%,100% { transform: translateY(0px) scale(1);   opacity: 0.7; }
+      50%      { transform: translateY(-8px) scale(1.2); opacity: 1; }
+    }
+
+    /* Name inside heart */
+    .heart-inner-name {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -52%);
+      text-align: center;
+      pointer-events: none;
+    }
+    .heart-inner-name span {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(13px, 3vw, 20px);
+      color: rgba(255,240,245,0.9);
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(255,150,180,0.8);
+    }
+
+    /* ── Counter ── */
+    .love-label {
+      z-index: 2; position: relative; text-align: center;
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(11px, 1.8vw, 14px); color: rgba(255,180,160,0.55);
+      letter-spacing: 3px;
+    }
+    .counter-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: clamp(7px,1.8vw,13px); z-index: 2; position: relative;
+      width: min(500px, 95vw);
+    }
+    .counter-card {
+      background: rgba(160,10,30,0.1); border: 1px solid rgba(220,60,80,0.22);
+      border-radius: 14px; padding: clamp(9px,2vw,16px) clamp(5px,1.5vw,10px);
+      text-align: center; backdrop-filter: blur(12px);
+      box-shadow: 0 4px 24px rgba(180,10,40,0.15), inset 0 1px 0 rgba(255,255,255,0.05);
+      transition: transform 0.3s;
+    }
+    .counter-card:hover { transform: translateY(-4px); }
+    .counter-number {
+      font-family: 'Playfair Display', serif; font-size: clamp(24px,5vw,44px);
+      font-weight: 700; color: #fff; line-height: 1;
+      text-shadow: 0 0 18px rgba(255,70,100,0.9); letter-spacing: -1px;
+    }
+    .counter-word {
+      font-size: clamp(9px,1.4vw,12px); color: rgba(255,180,160,0.75);
+      font-weight: 500; margin-top: 4px; letter-spacing: 2px;
+      text-transform: uppercase; font-family: 'Cormorant Garamond', serif;
+    }
+
+    .bottom-msg { text-align: center; z-index: 2; position: relative; }
+    .bottom-msg p {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(11px,1.8vw,15px); color: rgba(255,175,155,0.45); letter-spacing: 3px;
+    }
+    .pulse { display:inline-block; animation: hb 1.6s ease-in-out infinite; }
+    @keyframes hb { 0%,100%{transform:scale(1)} 50%{transform:scale(1.4)} }
+  </style>
+</head>
+<body>
+
+  <div class="orb" style="width:500px;height:500px;background:#900010;top:-150px;left:-150px;animation-delay:0s;"></div>
+  <div class="orb" style="width:350px;height:350px;background:#600020;bottom:-100px;right:-100px;animation-delay:3s;"></div>
+  <div class="orb" style="width:250px;height:250px;background:#7a0030;top:40%;left:40%;animation-delay:1.5s;"></div>
+
+  <!-- Name -->
+  <div class="name-banner">
+    <div class="for-text">With all my love, for</div>
+    <div class="her-name">Sheamir</div>
+    <div class="since-text">💕 Together since May 10, 2025 💕</div>
+  </div>
+
+  <!-- Big Heart -->
+  <div class="heart-container">
+    <div class="big-heart-wrap">
+      <svg viewBox="0 0 200 185" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="hgMain" cx="38%" cy="32%" r="68%">
+            <stop offset="0%"   stop-color="#ff8fab"/>
+            <stop offset="25%"  stop-color="#e8185a"/>
+            <stop offset="60%"  stop-color="#c4003e"/>
+            <stop offset="100%" stop-color="#7a0025"/>
+          </radialGradient>
+          <radialGradient id="hgShine" cx="35%" cy="28%" r="40%">
+            <stop offset="0%"   stop-color="rgba(255,230,240,0.55)"/>
+            <stop offset="100%" stop-color="rgba(255,150,180,0)"/>
+          </radialGradient>
+          <!-- inner glow ring -->
+          <radialGradient id="hgRim" cx="50%" cy="50%" r="50%">
+            <stop offset="70%"  stop-color="rgba(232,24,90,0)"/>
+            <stop offset="100%" stop-color="rgba(255,80,120,0.25)"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Main heart fill -->
+        <path d="M100,168 C60,140 10,110 10,65 C10,35 35,14 60,14 C75,14 90,22 100,34 C110,22 125,14 140,14 C165,14 190,35 190,65 C190,110 140,140 100,168 Z"
+              fill="url(#hgMain)"/>
+
+        <!-- Shine overlay -->
+        <path d="M100,168 C60,140 10,110 10,65 C10,35 35,14 60,14 C75,14 90,22 100,34 C110,22 125,14 140,14 C165,14 190,35 190,65 C190,110 140,140 100,168 Z"
+              fill="url(#hgShine)"/>
+
+        <!-- Rim glow -->
+        <path d="M100,168 C60,140 10,110 10,65 C10,35 35,14 60,14 C75,14 90,22 100,34 C110,22 125,14 140,14 C165,14 190,35 190,65 C190,110 140,140 100,168 Z"
+              fill="url(#hgRim)"/>
+
+        <!-- Highlight blob top-left -->
+        <ellipse cx="68" cy="50" rx="22" ry="14" fill="rgba(255,220,235,0.22)" transform="rotate(-30,68,50)"/>
+        <ellipse cx="62" cy="44" rx="10" ry="6"  fill="rgba(255,240,248,0.30)" transform="rotate(-30,62,44)"/>
+      </svg>
+
+      <!-- Name inside heart -->
+      <div class="heart-inner-name">
+        <span>forever yours</span>
+      </div>
+
+      <!-- Mini floating hearts inside -->
+      <div class="mini-heart" style="top:28%;left:22%;animation-duration:2.1s;animation-delay:0s;">💕</div>
+      <div class="mini-heart" style="top:20%;left:55%;animation-duration:2.5s;animation-delay:0.4s;">❤️</div>
+      <div class="mini-heart" style="top:38%;left:70%;animation-duration:2.3s;animation-delay:0.8s;">💖</div>
+      <div class="mini-heart" style="top:55%;left:30%;animation-duration:2.7s;animation-delay:0.3s;">💗</div>
+      <div class="mini-heart" style="top:60%;left:60%;animation-duration:2.0s;animation-delay:1.0s;">💕</div>
+      <div class="mini-heart" style="top:42%;left:45%;animation-duration:2.4s;animation-delay:0.6s;">🌹</div>
+      <div class="mini-heart" style="top:70%;left:44%;animation-duration:2.2s;animation-delay:0.2s;">💓</div>
+    </div>
+  </div>
+
+  <!-- Counter -->
+  <div class="love-label">Our love has been growing for...</div>
+  <div class="counter-grid">
+    <div class="counter-card"><div class="counter-number" id="days">000</div><div class="counter-word">Days</div></div>
+    <div class="counter-card"><div class="counter-number" id="hours">00</div><div class="counter-word">Hours</div></div>
+    <div class="counter-card"><div class="counter-number" id="minutes">00</div><div class="counter-word">Minutes</div></div>
+    <div class="counter-card"><div class="counter-number" id="seconds">00</div><div class="counter-word">Seconds</div></div>
+  </div>
+
+  <div class="bottom-msg"><p>Every second with you is a blessing <span class="pulse">💕</span></p></div>
+
+  <script>
+    // Falling petals
+    ['💕','🌹','❤️','💖','🌸','💗'].forEach(emoji => {
+      for (let i = 0; i < 3; i++) {
+        const p = document.createElement('div');
+        p.className = 'petal';
+        p.textContent = emoji;
+        p.style.left = Math.random() * 100 + '%';
+        p.style.fontSize = (9 + Math.random() * 10) + 'px';
+        p.style.animationDuration = (8 + Math.random() * 10) + 's';
+        p.style.animationDelay    = (Math.random() * 14) + 's';
+        document.body.appendChild(p);
+      }
+    });
+
+    // Counter
+    const START = new Date('2025-05-10T00:00:00');
+    function pad(n, len=2){ return String(n).padStart(len,'0'); }
+    function tick(){
+      const diff = Math.floor((Date.now()-START)/1000);
+      document.getElementById('days').textContent    = pad(Math.floor(diff/86400),3);
+      document.getElementById('hours').textContent   = pad(Math.floor((diff%86400)/3600));
+      document.getElementById('minutes').textContent = pad(Math.floor((diff%3600)/60));
+      document.getElementById('seconds').textContent = pad(diff%60);
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
+</html>
